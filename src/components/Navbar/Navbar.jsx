@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 import CartWidget from '../Cart/CartWidget.jsx';
 import './navbar.css';
 
-const pages = ['Inicio', 'Categorías', 'Contacto', 'Sobre Nosotros'];
+const pages = ['Romance', 'Terror', 'Ciencia Ficción', 'Fantasía'];
 
 const Navbar = () => {
     return (
