@@ -1,0 +1,8 @@
+.businessName{
+    background: linear-gradient(90deg, #330b61, #F5E2CF);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-size: 48px;
+    font-weight: bold; 
+}

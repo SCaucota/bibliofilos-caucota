@@ -1,0 +1,15 @@
+.navbar {
+    background-color: #000020;
+    padding: 1rem 2rem;
+}
+
+.navbarOptions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo{
+    width: 80px;
+    padding-right: 1rem;
+}
