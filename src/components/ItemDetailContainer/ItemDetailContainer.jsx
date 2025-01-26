@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { getSingleProduct } from '../products'
 import ItemDetail from '../ItemDetail/ItemDetail'
 import { useParams } from 'react-router-dom'
+import Spinner from '../Spinner/Spinner'
 
 const ItemDetailContainer = () => {
     
@@ -16,7 +17,8 @@ const ItemDetailContainer = () => {
 
   return (
     <div>
-        {product ? <ItemDetail product={product} /> : <p>Cargando producto...</p>}
+        {product ? <ItemDetail product={product} /> 
+        : <Spinner/>}
     </div>
   )
 }

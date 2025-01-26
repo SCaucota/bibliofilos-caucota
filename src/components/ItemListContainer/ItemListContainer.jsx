@@ -3,10 +3,12 @@ import './itemListContainer.css'
 import { getProducts, getProductsCategory } from '../products';
 import ItemList from '../ItemList/ItemList';
 import { useParams } from 'react-router-dom';
+import Spinner from '../Spinner/Spinner';
 
 const ItemListContainer = () => {
 
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const {id} = useParams();
 
@@ -15,11 +17,15 @@ const ItemListContainer = () => {
 
     functionProducts(id)
       .then(response => setProducts(response))
+      .finally(() => setLoading(false));
+
   }, [id])
 
   return (
     <>
-      <ItemList products={products}/>
+      {
+        loading ? <Spinner/> : <ItemList products={products}/>
+      }
     </>
   )
 }

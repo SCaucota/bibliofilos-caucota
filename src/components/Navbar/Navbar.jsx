@@ -3,7 +3,7 @@ import Typography from '@mui/material/Typography';
 import Toolbar from '@mui/material/Toolbar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import CartWidget from '../Cart/CartWidget.jsx';
+import CartWidget from '../CartWidget/CartWidget.jsx';
 import {Link, NavLink} from 'react-router-dom';
 import './navbar.css';
 
@@ -14,7 +14,7 @@ const Navbar = () => {
         <>
             <Toolbar className='navbar' disableGutters>
                 <img className='logo' src="https://res.cloudinary.com/dcwuqrvuv/image/upload/v1734960748/BIBLIOMANIACS_rno8ve.png" alt='logo'/>
-                <Link to={'/'}>
+                <Link className='link' to={'/'}>
                     <Typography
                         variant="h6"
                         noWrap
@@ -34,7 +34,7 @@ const Navbar = () => {
                     
                 <Box className="navbarOptions" sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                     {pages.map((page) => (
-                        <NavLink key={page} to={`/category/${page.toLowerCase()}`}>
+                        <NavLink className='link' key={page} to={`/category/${page.toLowerCase()}`}>
                             <Button
                                 key={page}
                                 sx={{ my: 3, color: 'white', display: 'block' }}

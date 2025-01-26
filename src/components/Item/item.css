@@ -11,6 +11,13 @@
     background-color: #905F9E;
     padding: 0.8rem 2.5rem;
     border-radius: 10px;
-    color: #291943;
+    color: white;
     text-decoration: none;
+    border: 2px #905F9E solid;
+}
+
+.btn:hover{
+    background-color: white;
+    border: 2px #905F9E solid;
+    color: #905F9E;
 }
