@@ -8,8 +8,7 @@ const products = [
     movieAdaptation: true,
     new: false,
     price: 18000,
-    raiting: 4.8,
-    season: "invierno",
+    rating: 4.8,
     stock: 200,
     title: "Bajo la misma estrella"
   },
@@ -24,7 +23,6 @@ const products = [
     price: 22000,
     rating: 4.6,
     saga: "Harry Potter",
-    season: "invierno",
     stock: 350,
     title: "Harry Potter y la piedra filosofal"
   },
@@ -38,7 +36,6 @@ const products = [
     new: false,
     price: 23450,
     rating: 4.7,
-    season: "otoño",
     stock: 150,
     title: "Escrito en el agua"
   },
@@ -53,7 +50,6 @@ const products = [
     price: 25000,
     rating: 4.9,
     saga: "El Señor de los Anillos",
-    season: "invierno",
     stock: 300,
     title: "El Hobbit"
   },
@@ -68,7 +64,6 @@ const products = [
     price: 30000,
     rating: 4.7,
     saga: "Canción de Hielo y Fuego",
-    season: "invierno",
     stock: 500,
     title: "Juego de Tronos"
   },
@@ -82,7 +77,6 @@ const products = [
     new: false,
     price: 15000,
     rating: 4.5,
-    season: "otoño",
     stock: 250,
     title: "Orgullo y prejuicio"
   },
@@ -97,7 +91,6 @@ const products = [
     price: 22000,
     rating: 4.6,
     saga: "Robert Langdon",
-    season: "primavera",
     stock: 350,
     title: "El Código Da Vinci"
   },
@@ -112,7 +105,6 @@ const products = [
     price: 21000,
     rating: 4.8,
     saga: "Los Juegos del Hambre",
-    season: "verano",
     stock: 280,
     title: "Los Juegos del Hambre"
   },
@@ -126,7 +118,6 @@ const products = [
     new: false,
     price: 17000,
     rating: 4.9,
-    season: "otoño",
     stock: 320,
     title: "1984"
   },
@@ -140,7 +131,6 @@ const products = [
     new: true,
     price: 20000,
     rating: 4.7,
-    season: "invierno",
     stock: 210,
     title: "Crimen y castigo"
   },
@@ -155,7 +145,6 @@ const products = [
     price: 19500,
     rating: 4.4,
     saga: "Divergente",
-    season: "primavera",
     stock: 300,
     title: "Divergente"
   },
@@ -169,7 +158,6 @@ const products = [
     new: true,
     price: 12000,
     rating: 4.9,
-    season: "invierno",
     stock: 450,
     title: "El Principito"
   },
@@ -183,7 +171,6 @@ const products = [
     new: false,
     price: 24000,
     rating: 4.8,
-    season: "verano",
     stock: 200,
     title: "Don Quijote de la Mancha"
   },
@@ -197,7 +184,6 @@ const products = [
     new: true,
     price: 26000,
     rating: 4.6,
-    season: "invierno",
     stock: 250,
     title: "It"
   },
@@ -210,9 +196,8 @@ const products = [
     movieAdaptation: true,
     new: false,
     price: 19000,
-    rating: 4.2,
+    rating: 3.5,
     saga: "Crepúsculo",
-    season: "primavera",
     stock: 300,
     title: "Crepúsculo"
   }

@@ -1,0 +1,29 @@
+.cardContainer{
+    margin: 2rem;
+}
+
+.starsContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    font-size: 20px;
+}
+
+.starsContainer p{
+    padding-left: 5px;
+}
+
+h2{
+    color: rgb(42, 41, 41);
+}
+
+.star {
+    color: #291943;
+    font-size: 30px;
+}
+
+.img{
+    height: 400px;
+    margin: 1rem;
+}
