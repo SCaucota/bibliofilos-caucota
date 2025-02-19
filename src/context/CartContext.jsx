@@ -60,6 +60,15 @@ export const CartProvider = ({children}) => {
         setQuantityTotal(0);
     }
 
+    const formatPrice = (price) => {
+        const formattedPrice = price.toLocaleString('es-ES', {
+          minimumFractionDigits: 0,
+          maximumFractionDigits: 2,
+        });
+    
+        return formattedPrice;
+    }
+
     return (
         <CartContext.Provider 
             value={{
@@ -69,7 +78,8 @@ export const CartProvider = ({children}) => {
                 quantityTotal,
                 deleteProduct,
                 emptyCart,
-                updateQuantity
+                updateQuantity,
+                formatPrice
             }}>
             {children}
         </CartContext.Provider>

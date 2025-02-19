@@ -1,0 +1,58 @@
+.cartContainer{
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 2rem;
+    align-items: flex-start;
+}
+
+.productsCartContainer{
+    width: 70%;
+}
+
+.singleProductCartContainer{
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 0rem;
+    align-items: center;
+    background-color: rgb(247 247 247);
+    padding: 1rem 2rem;
+}
+
+.singleProductCartContainer img{
+    width: 100px;
+    height: 150px;
+}
+
+.totalButtonsContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 4rem;
+    position: sticky;
+    top: 10px;
+    background-color: white;
+    padding: 1rem;
+    z-index: 100;
+}
+
+.deleteIcon{
+    border: none;
+    background-color: rgb(247 247 247);
+    padding: 0.5rem;
+}
+
+.deleteIcon:hover{
+    background-color: rgb(224, 224, 224);
+    border: none;
+    border-radius: 100%;
+    padding: 0.5rem;
+}
+
+.emptyCartContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 70vh;
+    
+}

@@ -1,15 +1,12 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { Card, CardActions, CardContent, CardMedia, Typography } from '@mui/material'
+import React, { useContext } from 'react'
+import { Card, CardContent, CardMedia, Typography } from '@mui/material'
 import './item.css';
 import Button from '../Button/Button';
+import { CartContext } from '../../context/CartContext';
 
 const Item = ({product}) => {
 
-  const formattedPrice = product.price.toLocaleString('es-ES', {
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 2,
-  });
+  const {formatPrice} = useContext(CartContext)
 
   return (
     <Card className='card' sx={{ width: 345 }}>
@@ -22,7 +19,7 @@ const Item = ({product}) => {
         <Typography gutterBottom variant="h5" component="div">
           {product.title}
         </Typography>
-        <Typography>${formattedPrice}</Typography>
+        <Typography>${formatPrice(product.price)}</Typography>
       </CardContent>
       <Button btnText={'Ver Detalle'} route={`/item/${product.id}`}/>
     </Card>

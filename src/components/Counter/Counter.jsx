@@ -36,9 +36,9 @@ const Counter = ({stock, prod, counterType}) => {
   return (
     <div className='counterButtonContainer'>
         <div className='counterContainer'>
-          <button onClick={decrement} className='btnCounter'>-</button>
+          <button onClick={decrement} className='btnCounter' style={counterType === 'cart' ? {backgroundColor: 'rgb(247 247 247)'} : {backgroundColor: 'white'}}>-</button>
           <h4>{value}</h4>
-          <button onClick={increment} className='btnCounter' disabled={value >= (counterType === 'cart' ? stock : maxAvailable)}>+</button>
+          <button onClick={increment} className='btnCounter' style={counterType === 'cart' ? {backgroundColor: 'rgb(247 247 247)'} : {backgroundColor: 'white'}} disabled={value >= (counterType === 'cart' ? stock : maxAvailable)}>+</button>
         </div>
         {
           !prod.quantity ? 

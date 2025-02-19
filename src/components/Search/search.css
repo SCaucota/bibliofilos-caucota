@@ -1,0 +1,12 @@
+.searchContainer{
+    margin-right: 1rem;
+}
+
+.iconSearch{
+    position: absolute;
+    right: 110px;
+    top: 62px;
+    z-index: 1;
+    background-color: #000020;
+    border: none;
+}

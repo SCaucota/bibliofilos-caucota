@@ -1,14 +1,12 @@
-import React from 'react';
-import { Star, StarHalf } from '@mui/icons-material';
+import React, { useContext } from 'react';
+import { Star, StarBorder, StarHalf } from '@mui/icons-material';
 import './ItemDetail.css'
 import Counter from '../Counter/Counter';
+import { CartContext } from '../../context/CartContext';
 
 const ItemDetail = ({product}) => {
 
-  const formattedPrice = product.price.toLocaleString('es-ES', {
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 2,
-  });
+  const {formatPrice} = useContext(CartContext)
 
   const renderStars = (rating) => {
     const fullStars = Math.floor(rating);
@@ -39,7 +37,7 @@ const ItemDetail = ({product}) => {
         <div className='dataContainer'>
           <h1>{product.title}</h1>
           <h2>{product.author}</h2>
-          <h3>${formattedPrice}</h3>
+          <h3>${formatPrice(product.price)}</h3>
           <p>{product.description}</p>
           <Counter stock={product.stock} prod={product} counterType={'detail'}/>
         </div>

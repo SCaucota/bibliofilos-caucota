@@ -1,36 +1,46 @@
 import React, { useContext } from 'react'
 import { CartContext } from '../../context/CartContext'
 import Counter from '../Counter/Counter'
-import Button from '../Button/Button'
+import Button from '../Button/Button';
+import './cart.css';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 const Cart = () => {
 
-  const {cart, total, deleteProduct, emptyCart} = useContext(CartContext)
+  const {cart, total, deleteProduct, emptyCart, formatPrice} = useContext(CartContext)
 
   return (
     <>
+      
       {cart.length !== 0 ? (
         <>
           <h1>Carrito de compras</h1>
-          {cart.map(product => (
-            <div key={product.id}>
-              <img src={product.image} alt={product.title} />
-              <div>
-                <h5>{product.title}</h5>
-                <Counter stock={product.stock} prod={product} counterType={'cart'} />
-                <p>C/u ${product.price}</p>
-                <h3>${product.price * product.quantity}</h3>
-                <Button btnText={'Eliminar'} action={() => {deleteProduct(product.id)}} />
-              </div>
+          <div className='cartContainer'>
+            <div className='productsCartContainer'>
+              {cart.map(product => (
+                <div className='singleProductCartContainer' key={product.id}>
+                  <img src={product.image} alt={product.title} />
+                  <div>
+                    <h2>{product.title}</h2>
+                    <p>C/u ${formatPrice(product.price)}</p>
+                    <Counter stock={product.stock} prod={product} counterType={'cart'} />
+                  </div>
+                  <h2>${formatPrice(product.price * product.quantity)}</h2>
+                  <button onClick={() => deleteProduct(product.id)} className='deleteIcon'><DeleteIcon/></button>
+                </div>
+              ))}
             </div>
-          ))}
-          <h4>Total: ${total}</h4>
-          <Button btnText={'Vaciar Carrito'} action={() => {emptyCart()}} />
-          <Button btnText={'Finalizar Compra'} action={() => {}} />
+            <div className='totalButtonsContainer'>
+              <h2>Total: ${formatPrice(total)}</h2>
+              <Button btnText={'Vaciar Carrito'} action={() => {emptyCart()}} />
+              <Button btnText={'Finalizar Compra'} action={() => {}} />
+            </div>
+          </div>
         </>
       ) : (
-        <div>
-          <h3>Tu carrito está vacío</h3>
+        <div className='emptyCartContainer'>
+          <h2>Tu carrito está vacío</h2>
+          <p>Regresa y navega en nuestro mar de libros</p>
           <Button btnText={'Volver al inicio'} route={'/'}/>
         </div>
       )}

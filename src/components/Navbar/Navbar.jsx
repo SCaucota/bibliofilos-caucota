@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Typography from '@mui/material/Typography';
 import Toolbar from '@mui/material/Toolbar';
 import Box from '@mui/material/Box';
@@ -6,10 +6,19 @@ import Button from '@mui/material/Button';
 import CartWidget from '../CartWidget/CartWidget.jsx';
 import {Link, NavLink} from 'react-router-dom';
 import './navbar.css';
+import Search from '../Search/Search.jsx';
+import { SearchContext } from '../../context/SearchContext.jsx';
 
 const pages = ['Romance', 'Terror', 'Ciencia Ficcion', 'Fantasia', 'Misterio', 'Distopia', 'Clasico'];
 
 const Navbar = () => {
+
+    const {setSearchTerm} = useContext(SearchContext);
+
+    const handleCategoryCLick = () => {
+        setSearchTerm('');
+    }
+
     return (
         <>
             <Toolbar className='navbar' disableGutters>
@@ -44,6 +53,7 @@ const Navbar = () => {
                         </NavLink>
                     ))}
                 </Box>
+                <Search/>
                 <CartWidget />
             </Toolbar>          
         </>
