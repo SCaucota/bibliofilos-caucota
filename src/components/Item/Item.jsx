@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Card, CardActions, CardContent, CardMedia, Typography } from '@mui/material'
-import './item.css'
+import './item.css';
+import Button from '../Button/Button';
 
 const Item = ({product}) => {
 
@@ -23,9 +24,7 @@ const Item = ({product}) => {
         </Typography>
         <Typography>${formattedPrice}</Typography>
       </CardContent>
-      <CardActions>
-        <Link className='btn' to={`/item/${product.id}`}>Ver Detalle</Link>
-      </CardActions>
+      <Button btnText={'Ver Detalle'} route={`/item/${product.id}`}/>
     </Card>
   )
 }

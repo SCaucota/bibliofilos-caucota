@@ -1,6 +1,7 @@
 import React from 'react';
-import { Star, StarHalf, StarOutline } from '@mui/icons-material';
+import { Star, StarHalf } from '@mui/icons-material';
 import './ItemDetail.css'
+import Counter from '../Counter/Counter';
 
 const ItemDetail = ({product}) => {
 
@@ -28,15 +29,20 @@ const ItemDetail = ({product}) => {
 
   return (
     <div className='cardContainer'>
-        <img className='img' src={product.image} alt={product.title} />
-        <div className='starsContainer'>
-          {renderStars(product.rating)}
-          <p>{product.rating}</p>
+        <div>
+          <img className='img' src={product.image} alt={product.title} />
+          <div className='starsContainer'>
+            {renderStars(product.rating)}
+            <p>{product.rating}</p>
+          </div>
         </div>
-        <h1>{product.title}</h1>
-        <h2>{product.author}</h2>
-        <h3>${formattedPrice}</h3>
-        <p>{product.description}</p>
+        <div className='dataContainer'>
+          <h1>{product.title}</h1>
+          <h2>{product.author}</h2>
+          <h3>${formattedPrice}</h3>
+          <p>{product.description}</p>
+          <Counter stock={product.stock} prod={product} counterType={'detail'}/>
+        </div>
     </div>
   )
 }

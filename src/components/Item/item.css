@@ -6,18 +6,3 @@
     margin-top: 4rem;
     padding: 1.5rem 0rem;
 }
-
-.btn {
-    background-color: #905F9E;
-    padding: 0.8rem 2.5rem;
-    border-radius: 10px;
-    color: white;
-    text-decoration: none;
-    border: 2px #905F9E solid;
-}
-
-.btn:hover{
-    background-color: white;
-    border: 2px #905F9E solid;
-    color: #905F9E;
-}
