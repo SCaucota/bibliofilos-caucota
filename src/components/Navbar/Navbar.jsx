@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Typography from '@mui/material/Typography';
 import Toolbar from '@mui/material/Toolbar';
 import Box from '@mui/material/Box';
@@ -8,10 +8,23 @@ import {Link, NavLink} from 'react-router-dom';
 import './navbar.css';
 import Search from '../Search/Search.jsx';
 import { SearchContext } from '../../context/SearchContext.jsx';
-
-const pages = ['Romance', 'Terror', 'Ciencia Ficcion', 'Fantasia', 'Misterio', 'Distopia', 'Clasico'];
+import { collection, getDocs, query } from 'firebase/firestore';
+import { db } from '../../services/config.js';
 
 const Navbar = () => {
+
+    const [categories, setCategories] = useState([]);
+
+    useEffect(() => {
+        const categoriesQuery = query(collection(db, 'categories'));
+
+        getDocs(categoriesQuery)
+            .then(response => {
+                let fetchedCategories = (response.docs.map(doc => ({id: doc.id, ...doc.data()})));
+                setCategories(fetchedCategories)
+            })
+            .catch(error => console.error('Error obteniendo categorías: ', error));
+    }, [])
 
     const {handleEmptySearch} = useContext(SearchContext);
 
@@ -38,13 +51,13 @@ const Navbar = () => {
                 </Link>
                     
                 <Box className="navbarOptions" sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                    {pages.map((page) => (
-                        <NavLink onClick={handleEmptySearch} className='link' key={page} to={`/category/${page.toLowerCase()}`}>
+                    {categories.map((category) => (
+                        <NavLink onClick={handleEmptySearch} className='link' key={category?.id} to={`/categories/${category.key?.toLowerCase()}`}>
                             <Button
-                                key={page}
+                                key={category.key}
                                 sx={{ my: 3, color: 'white', display: 'block' }}
                             >
-                                {page}
+                                {category.key}
                             </Button>
                         </NavLink>
                     ))}
