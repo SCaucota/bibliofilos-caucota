@@ -3,10 +3,12 @@ import { Star, StarBorder, StarHalf } from '@mui/icons-material';
 import './ItemDetail.css'
 import Counter from '../Counter/Counter';
 import { CartContext } from '../../context/CartContext';
+import { Snackbar } from '@mui/material';
+import MuiAlert from '@mui/material/Alert';
 
 const ItemDetail = ({product}) => {
 
-  const {formatPrice} = useContext(CartContext)
+  const {formatPrice, openSnack, setOpenSnack} = useContext(CartContext)
 
   const renderStars = (rating) => {
     const fullStars = Math.floor(rating);
@@ -25,6 +27,14 @@ const ItemDetail = ({product}) => {
     )
   }
 
+  const handleCloseSnack = (event, reason) => {
+    if(reason === 'clickaway') {
+      return;
+    }
+    setOpenSnack(false)
+    
+  }
+
   return (
     <div className='cardContainer'>
         <div>
@@ -41,6 +51,23 @@ const ItemDetail = ({product}) => {
           <p>{product.description}</p>
           <Counter stock={product.stock} prod={product} counterType={'detail'}/>
         </div>
+        <Snackbar
+        open={openSnack}
+        autoHideDuration={3000}
+        onClose={handleCloseSnack}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'right',
+        }}
+      >
+        <MuiAlert 
+          onClose={handleCloseSnack} 
+          severity="success"
+          sx={{ width: '100%' }}
+        >
+          El libro se agregó al carrito
+        </MuiAlert>
+      </Snackbar>
     </div>
   )
 }

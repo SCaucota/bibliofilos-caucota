@@ -10,6 +10,7 @@ export const CartProvider = ({children}) => {
     const [cart, setCart] = useState([]);
     const [total, setTotal] = useState(0);
     const [quantityTotal, setQuantityTotal] = useState(0);
+    const [openSnack, setOpenSnack] = useState(false);
 
     const addProduct = (prod, quantity) => {
         const existingProduct = cart.find(product => product.id === prod.id)
@@ -28,6 +29,7 @@ export const CartProvider = ({children}) => {
 
         setQuantityTotal(quantityTotal+quantity);
         setTotal(total + prod.price*quantity);
+        setOpenSnack(true);
     }
 
     const updateQuantity = (id, newQuantity) => {
@@ -80,7 +82,9 @@ export const CartProvider = ({children}) => {
                 emptyCart,
                 updateQuantity,
                 formatPrice,
-                setQuantityTotal
+                setQuantityTotal,
+                openSnack,
+                setOpenSnack
             }}>
             {children}
         </CartContext.Provider>
