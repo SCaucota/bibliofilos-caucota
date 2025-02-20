@@ -1,34 +1,35 @@
-# E-Commerce de Libería Online📚
+# 📚 E-Commerce de Librería Online
 
-Sitio web ficticio creado con React Js. Cuenta con funcionalidades para poder explorar en la base de datos de libros creado en Firebase y simular la compra de los productos ofrecidos, de manera fácil y rápida.
+Sitio web ficticio creado con **React.js** que permite explorar una base de datos de libros en **Firebase** y simular la compra de productos de forma fácil y rápida.
 
-## Tabla de Contenidos
-1. [Caracteristicas](#caracteristicas)
-2. [Tecnologías](#tecnologias)
-3. [Istalación](#istalacion)
+## 📌 Tabla de Contenidos
+1. [Características](#-características)
+2. [Tecnologías](#-tecnologías)
+3. [Instalación](#-instalación)
 
-## 🌟 Caracteristicas
-* 📚 Lista de productos ofrecidos traidos de la base de datos de Firestore
-* 🛒 Carrito de compras: Agregar, Eliminar y Borrar carrito antes de realizar la compra ficticia
-* 🔍 Búsqueda y filtrado: Busqueda de libros acorde al titulo y filtrado por categorías
-* 📤 Almacenamiento de las ordenes de compra en Firestore
+## ✨ Características
+✔️ **📚 Listado de libros dinámico** obtenido desde Firestore  
+✔️ **🛒 Carrito de compras** con funciones de agregar, eliminar y vaciar  
+✔️ **🔍 Búsqueda y filtrado** por título y categorías  
+✔️ **📤 Registro de órdenes** en Firestore  
 
-## 🛠️ Tecnologias
-* Frontend:
-    - React
-    - Vite
-    - React Router
-    - React Context
-    - Css Modules
-    - Librería: 
-        - Material UI: Para la utilizacion de elementos visuales variados
-        - Sweetalert2: Uso de alerts presdiseñados
-* Backend:
-    - Firebase Firestore
-* Despliegue:
-    - Vercel
+## 🛠️ Tecnologías
+### 🔹 **Frontend**
+- **React.js** con **Vite**
+- **React Router** (navegación)
+- **React Context API** (manejo de estado global)
+- **CSS Modules** (estilos modulares)
+- **Librerías:**
+  - 📌 **Material UI**: Componentes visuales modernos
+  - ⚠️ **SweetAlert2**: Alertas interactivas
 
-## 🚀 Instalacion
+### 🔹 **Backend**
+- **Firebase Firestore** (base de datos en la nube)
+
+### 🔹 **Despliegue**
+- 🚀 **Vercel**
+
+## 🚀 Instalación
 
 ### 🔹 Clonar el repositorio
 ```
@@ -36,13 +37,12 @@ git clone https://github.com/SCaucota/bibliofilos-caucota.git
 cd bibliofilos-caucota
 ```
 
-### 🔹 Instalar dependencias
+### 🔹 Instalacion de dependencias
 ```
 npm install
-npm start
 ```
 
-
-⚠️ Es indispensable la lectura de la documentación de cada una de las dependencias mencionadas anteriormente para poder aplicar cambios adecuadamente.
-
-* El sitio web fue creado para fines educativos. Aún se encuentra en desarrollo.
+### 🔹 Ejecutar el proyecto
+```
+npm run dev
+```

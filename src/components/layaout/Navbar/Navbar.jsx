@@ -3,13 +3,13 @@ import Typography from '@mui/material/Typography';
 import Toolbar from '@mui/material/Toolbar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import CartWidget from '../CartWidget/CartWidget.jsx';
+import CartWidget from '../../common/CartWidget/CartWidget.jsx';
 import {Link, NavLink} from 'react-router-dom';
 import './navbar.css';
-import Search from '../Search/Search.jsx';
-import { SearchContext } from '../../context/SearchContext.jsx';
+import Search from '../../common/Search/Search.jsx';
+import { SearchContext } from '../../../context/SearchContext.jsx';
 import { collection, getDocs, query } from 'firebase/firestore';
-import { db } from '../../services/config.js';
+import { db } from '../../../services/config.js';
 
 const Navbar = () => {
 

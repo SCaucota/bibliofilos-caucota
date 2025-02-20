@@ -1,15 +1,14 @@
 import React, { useContext, useEffect, useState } from "react";
-import { db } from "../../services/config";
-import { CartContext } from "../../context/CartContext";
+import { db } from "../../../services/config";
+import { CartContext } from "../../../context/CartContext";
 import { collection, addDoc, getDoc, updateDoc, doc } from "firebase/firestore";
 import {
-  backdropClasses,
   FormControlLabel,
   Radio,
   RadioGroup,
   TextField,
 } from "@mui/material";
-import Button from "../Button/Button";
+import Button from '../../common/Button/Button';
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import "./checkout.css";
@@ -204,24 +203,28 @@ const Checkout = () => {
             <p>Ingrese sus datos personales para poder generar su compra</p>
             <div className="personalDataContainer">
               <TextField
+                type="text"
                 onChange={(e) => setName(e.target.value)}
                 id="outlined-basic"
                 label="Nombre"
                 variant="outlined"
               />
               <TextField
+                type="text"
                 onChange={(e) => setLastname(e.target.value)}
                 id="outlined-basic"
                 label="Apellido"
                 variant="outlined"
               />
               <TextField
+                type="email"
                 onChange={(e) => setEmail(e.target.value)}
                 id="outlined-basic"
                 label="Email"
                 variant="outlined"
               />
               <TextField
+                type="email"
                 onChange={(e) => setRepeatEmail(e.target.value)}
                 id="outlined-basic"
                 label="Repetir Email"
@@ -234,6 +237,7 @@ const Checkout = () => {
                 variant="outlined"
               />
               <TextField
+                type="number"
                 onChange={(e) => setPhoneNumber(e.target.value)}
                 id="outlined-basic"
                 label="Teléfono"
@@ -243,12 +247,14 @@ const Checkout = () => {
             <h2>Datos de Tarjeta</h2>
             <div className="personalDataContainer">
               <TextField
+                type="number"
                 onChange={(e) => setCardNumber(e.target.value)}
                 id="outlined-basic"
                 label="Número de Tarjeta"
                 variant="outlined"
               />
               <TextField
+                type="text"
                 onChange={(e) => setCardOwner(e.target.value)}
                 id="outlined-basic"
                 label="Titular"

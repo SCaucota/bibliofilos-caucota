@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { Card, CardContent, CardMedia, Typography } from '@mui/material'
 import './item.css';
 import Button from '../Button/Button';
-import { CartContext } from '../../context/CartContext';
+import { CartContext } from '../../../context/CartContext';
 
 const Item = ({product}) => {
 

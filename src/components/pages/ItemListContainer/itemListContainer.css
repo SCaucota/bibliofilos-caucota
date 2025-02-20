@@ -6,3 +6,9 @@
     font-size: 48px;
     font-weight: bold; 
 }
+
+.filterSelect{
+    margin-top: 2rem;
+    margin-left: 2rem;
+    width: 15%;
+}

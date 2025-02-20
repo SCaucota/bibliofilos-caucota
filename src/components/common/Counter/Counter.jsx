@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import './counter.css'
 import Button from '../Button/Button';
-import { CartContext } from '../../context/CartContext';
+import { CartContext } from '../../../context/CartContext';
 
 const Counter = ({stock, prod, counterType}) => {
   const {addProduct, updateQuantity, cart} = useContext(CartContext)
@@ -42,7 +42,7 @@ const Counter = ({stock, prod, counterType}) => {
         </div>
         {
           !prod.quantity ? 
-            <Button btnText={'Agregar Al Carrito'} action={() => addProduct(prod, value)} disabled={value > maxAvailable}/>
+            <Button btnText={value > maxAvailable ? 'Sin Stock' : 'Agregar Al Carrito'} action={() => addProduct(prod, value)} disabled={value > maxAvailable}/>
           : null
         }
         

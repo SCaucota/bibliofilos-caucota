@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import TextField from '@mui/material/TextField';
 import SearchIcon from '@mui/icons-material/Search';
 import './search.css'
-import { SearchContext } from '../../context/SearchContext';
+import { SearchContext } from '../../../context/SearchContext';
 import { useNavigate } from 'react-router-dom';
 
 const Search = () => {

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import ItemDetail from '../ItemDetail/ItemDetail'
+import ItemDetail from '../../common/ItemDetail/ItemDetail'
 import { useNavigate, useParams } from 'react-router-dom'
-import Spinner from '../Spinner/Spinner'
+import Spinner from '../../common/Spinner/Spinner'
 import { collection, getDocs, query } from 'firebase/firestore'
-import { db } from '../../services/config'
+import { db } from '../../../services/config'
 
 const ItemDetailContainer = () => {
     
@@ -32,7 +32,8 @@ const ItemDetailContainer = () => {
 
   return (
     <div>
-        { product ? <ItemDetail product={product} /> 
+        { product ? 
+          <ItemDetail product={product} /> 
           : <Spinner/>
         }
     </div>

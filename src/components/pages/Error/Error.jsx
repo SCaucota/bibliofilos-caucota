@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import './error.css'
-import { SearchContext } from '../../context/SearchContext'
+import { SearchContext } from '../../../context/SearchContext'
 
 const Error = () => {
 
