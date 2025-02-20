@@ -23,7 +23,7 @@ const Search = () => {
 
   return (
     <div className='searchContainer'>
-      <TextField 
+      <TextField
         sx={{
           "& .MuiInputBase-input": { color: "white", paddingRight: "45px" }, 
           "& .MuiInputLabel-root": { color: "white" },

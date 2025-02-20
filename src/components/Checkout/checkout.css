@@ -1,0 +1,51 @@
+.checkoutContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin: 2rem 1rem;
+}
+
+.cardCheckout{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.2), 
+              -8px -8px 15px rgba(255, 255, 255, 0.7);
+}
+
+.cardCheckout img{
+    height: 150px;
+    width: 100px;
+}
+
+.formCheckout{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.imgMethodSend{
+    object-fit: contain;
+    height: 80px;
+    width: 120px;
+}
+
+.personalDataContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.buttonsFormContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.errorText{
+    color: #ea2828;
+    font-weight: bold;
+}

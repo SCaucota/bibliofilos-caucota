@@ -18,3 +18,14 @@
     color: rgb(224, 219, 219);
     border-color: #b388bf;
 }
+
+.buttonError {
+    background-color: #ff4040;
+    border: 2px #ff4040 solid;
+}
+
+.buttonError:hover{
+    background-color: white;
+    color: #ff4040;
+    border: 2px #ff4040 solid;
+}

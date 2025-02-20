@@ -3,13 +3,19 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './button.css'
 
-const Button = ({btnText, action, route, disabled}) => {
+const Button = ({btnText, action, route, disabled, btnError}) => {
   return (
     <CardActions>
       {
         route ?
           <Link className='btn' to={route}>{btnText}</Link>
-        : <button disabled={disabled} className='btn' onClick={action}>{btnText}</button>
+        : <button 
+            disabled={disabled} 
+            className={`btn ${btnError ? btnError : ''}`} 
+            onClick={action}
+          >
+            {btnText}
+          </button>
       }
     </CardActions>
   )

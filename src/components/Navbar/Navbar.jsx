@@ -13,17 +13,13 @@ const pages = ['Romance', 'Terror', 'Ciencia Ficcion', 'Fantasia', 'Misterio', '
 
 const Navbar = () => {
 
-    const {setSearchTerm} = useContext(SearchContext);
-
-    const handleCategoryCLick = () => {
-        setSearchTerm('');
-    }
+    const {handleEmptySearch} = useContext(SearchContext);
 
     return (
         <>
             <Toolbar className='navbar' disableGutters>
                 <img className='logo' src="https://res.cloudinary.com/dcwuqrvuv/image/upload/v1734960748/BIBLIOMANIACS_rno8ve.png" alt='logo'/>
-                <Link className='link' to={'/'}>
+                <Link onClick={handleEmptySearch} className='link' to={'/'}>
                     <Typography
                         variant="h6"
                         noWrap
@@ -43,7 +39,7 @@ const Navbar = () => {
                     
                 <Box className="navbarOptions" sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                     {pages.map((page) => (
-                        <NavLink className='link' key={page} to={`/category/${page.toLowerCase()}`}>
+                        <NavLink onClick={handleEmptySearch} className='link' key={page} to={`/category/${page.toLowerCase()}`}>
                             <Button
                                 key={page}
                                 sx={{ my: 3, color: 'white', display: 'block' }}

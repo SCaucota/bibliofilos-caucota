@@ -79,7 +79,8 @@ export const CartProvider = ({children}) => {
                 deleteProduct,
                 emptyCart,
                 updateQuantity,
-                formatPrice
+                formatPrice,
+                setQuantityTotal
             }}>
             {children}
         </CartContext.Provider>
