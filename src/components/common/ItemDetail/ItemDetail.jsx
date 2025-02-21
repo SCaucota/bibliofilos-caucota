@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Star, StarBorder, StarHalf } from "@mui/icons-material";
-import "./ItemDetail.css";
+import "./itemDetail.css";
 import Counter from "../Counter/Counter";
 import { CartContext } from "../../../context/CartContext";
 import {Snackbar } from "@mui/material";
