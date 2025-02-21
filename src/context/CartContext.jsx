@@ -14,10 +14,13 @@ export const CartProvider = ({children}) => {
 
     useEffect(() => {
         const savedCart = JSON.parse(localStorage.getItem('cart'));
-        if(savedCart) {
+        if (!savedCart) {
+            const initialCart = { cart: cart, total: total, quantityTotal: quantityTotal };
+            localStorage.setItem('cart', JSON.stringify(initialCart));
+        } else {
             setCart(savedCart.cart);
             setTotal(savedCart.total);
-            setQuantityTotal(savedCart.quantityTotal)
+            setQuantityTotal(savedCart.quantityTotal);
         }
     }, [])
 
@@ -69,7 +72,7 @@ export const CartProvider = ({children}) => {
         setCart(newCart);
         setTotal(newTotal);
         setQuantityTotal(newQuantityTotal);
-        localStorage.setItem("cart", JSON.stringify(newCart));
+        localStorage.setItem("cart", JSON.stringify({cart: newCart, total: newTotal, quantityTotal: newQuantityTotal}));
     }
 
     const emptyCart = () => {
