@@ -76,7 +76,6 @@ const Navbar = () => {
                     <CartWidget />
                 </Box>
 
-                {/* IconButton para el menú hamburguesa */}
                 <IconButton
                     className='burguerIcon'
                     edge="end"

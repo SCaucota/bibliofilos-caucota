@@ -10,8 +10,6 @@ const Search = ({ drawer }) => {
   const { setSearchTerm } = useContext(SearchContext);
   const navigation = useNavigate();
 
-  console.log(drawer)
-
   const handleSearch = () => {
     setSearchTerm(inputSearchValue);
     navigation("/");

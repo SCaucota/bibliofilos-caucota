@@ -14,19 +14,23 @@ import Swal from "sweetalert2";
 import "./checkout.css";
 
 const Checkout = () => {
-  const { cart, emptyCart, total, setQuantityTotal, formatPrice } =
-    useContext(CartContext);
+  const { cart, emptyCart, total, formatPrice } = useContext(CartContext);
+
   const [name, setName] = useState("");
+  const [errorName, setErrorName] = useState('');
   const [lastname, setLastname] = useState("");
+  const [errorLastname, setErrorLastname] = useState('');
   const [email, setEmail] = useState("");
   const [repeatEmail, setRepeatEmail] = useState("");
+  const [errorRepeatEmail, setErrorRepeatEmail] = useState('');
   const [address, setAddress] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [cardNumber, setCardNumber] = useState("");
   const [cardOwner, setCardOwner] = useState("");
+  const [errorCardOwner, setErrorCardOwner] = useState('');
   const [shippingMethod, setShippingMethod] = useState("");
   const [orderId, setOrderId] = useState("");
-  const [error, setError] = useState("");
+  const [generalError, setGeneralError] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -48,6 +52,16 @@ const Checkout = () => {
     navigate("/");
   };
 
+  const handleNamesInputChange = (e, setState, setError) => {
+    const value = e.target.value;
+    if(/^[a-zA-Z\s]*$/.test(value)){
+      setState(value);
+      setError('');
+    }else {
+      setError('No se permiten números');
+    }
+  } 
+
   const manageForm = (event) => {
     event.preventDefault();
 
@@ -61,17 +75,17 @@ const Checkout = () => {
       !cardNumber ||
       !cardOwner
     ) {
-      setError("Campos incompletos");
+      setGeneralError("Campos incompletos");
       return;
     }
 
     if (email !== repeatEmail) {
-      setError("El email no coincide");
+      setErrorRepeatEmail("El email no coincide");
       return;
     }
 
     if (!shippingMethod) {
-      setError("Debe seleccionar un método de envío");
+      setGeneralError("Debe seleccionar un método de envío");
       return;
     }
 
@@ -104,19 +118,20 @@ const Checkout = () => {
       })
     )
       .then(() => {
-        return addDoc(collection(db, "orders"), order);
+        addDoc(collection(db, "orders"), order)
+          .then((docRef) => {
+            setOrderId(docRef.id);
+            emptyCart();
+          })
+          .catch((error) => {
+            console.error("Error en la creación de orden:", error);
+            setGeneralError("Hubo un problema con la compra");
+          });
       })
-      .then((docRef) => {
-        setOrderId(docRef.id);
-        emptyCart();
+      .catch(error => {
+        console.error('No se puede actualizar el stock', error);
+        setGeneralError('No se puede actualizar el stock');
       })
-      .catch((error) => {
-        console.error(
-          "Error en la actualización del stock o creación de orden:",
-          error
-        );
-        setError("Hubo un problema con la compra");
-      });
   };
 
   return (
@@ -202,14 +217,20 @@ const Checkout = () => {
             <div className="personalDataContainer">
               <TextField
                 type="text"
-                onChange={(e) => setName(e.target.value)}
+                onChange={(e) => handleNamesInputChange(e, setName, setErrorName)}
+                value={name}
+                error={!!errorName}
+                helperText={errorName}
                 id="outlined-basic"
                 label="Nombre"
                 variant="outlined"
               />
               <TextField
                 type="text"
-                onChange={(e) => setLastname(e.target.value)}
+                value={lastname}
+                error={!!errorLastname}
+                onChange={(e) => handleNamesInputChange(e, setLastname, setErrorLastname)}
+                helperText={errorLastname}
                 id="outlined-basic"
                 label="Apellido"
                 variant="outlined"
@@ -224,6 +245,8 @@ const Checkout = () => {
               <TextField
                 type="email"
                 onChange={(e) => setRepeatEmail(e.target.value)}
+                error={!!errorRepeatEmail}
+                helperText={errorRepeatEmail}
                 id="outlined-basic"
                 label="Repetir Email"
                 variant="outlined"
@@ -253,13 +276,16 @@ const Checkout = () => {
               />
               <TextField
                 type="text"
-                onChange={(e) => setCardOwner(e.target.value)}
+                onChange={(e) => handleNamesInputChange(e, setCardOwner, setErrorCardOwner)}
+                value={cardOwner}
+                error={!!errorCardOwner}
+                helperText={errorCardOwner}
                 id="outlined-basic"
                 label="Titular"
                 variant="outlined"
               />
             </div>
-            {error && <p className="errorText">*{error}</p>}
+            {generalError && <p className="errorText">*{generalError}</p>}
             <h2>Total: ${total}</h2>
             <div className="buttonsFormContainer">
               <Button
