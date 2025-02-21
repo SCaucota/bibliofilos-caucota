@@ -49,7 +49,7 @@ const Navbar = () => {
                         variant="h6"
                         noWrap
                         sx={{
-                            display: { xs: 'none', md: 'none', lg: 'flex' },
+                            display: { xs: 'flex'},
                             fontFamily: 'monospace',
                             fontWeight: 700,
                             letterSpacing: '.3rem',
