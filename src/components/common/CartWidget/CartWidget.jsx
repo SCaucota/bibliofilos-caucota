@@ -9,7 +9,6 @@ import { Link } from 'react-router-dom';
 const CartWidget = ({drawer}) => {
 
     const {quantityTotal} = useContext(CartContext);
-    console.log(quantityTotal)
 
     return (
         <>
