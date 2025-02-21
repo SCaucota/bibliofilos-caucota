@@ -50,3 +50,20 @@
     color: #ea2828;
     font-weight: bold;
 }
+
+@media (max-width: 558px) {
+    .cardCheckout{
+        flex-direction: column;
+    }
+
+    .buttonsFormContainer{
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 1120px){
+    .checkoutContainer{
+        display: flex;
+        flex-direction: column;
+    }
+}

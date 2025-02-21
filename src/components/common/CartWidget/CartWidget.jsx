@@ -6,7 +6,7 @@ import { CartContext } from '../../../context/CartContext';
 import { Link } from 'react-router-dom';
 
 
-const CartWidget = () => {
+const CartWidget = ({drawer}) => {
 
     const {quantityTotal} = useContext(CartContext);
 
@@ -14,7 +14,7 @@ const CartWidget = () => {
         <>
             <Link to={'/cart'}>
                 <IconButton>
-                        <ShoppingCartIcon style={{ fontSize: 30, color: 'white' }} />
+                        <ShoppingCartIcon style={drawer ? {fontSize: 35, color: 'black'} : { fontSize: 30, color: 'white' }} />
                         <span className='badgeCart'>{quantityTotal}</span>
                 </IconButton>
             </Link>

@@ -1,4 +1,4 @@
-import { useState, createContext } from "react";
+import { useState, createContext, useEffect } from "react";
 
 export const CartContext = createContext({
     cart:[],
@@ -12,24 +12,36 @@ export const CartProvider = ({children}) => {
     const [quantityTotal, setQuantityTotal] = useState(0);
     const [openSnack, setOpenSnack] = useState(false);
 
+    useEffect(() => {
+        const savedCart = JSON.parse(localStorage.getItem('cart'));
+        if(savedCart) {
+            setCart(savedCart.cart);
+            setTotal(savedCart.total);
+            setQuantityTotal(savedCart.quantityTotal)
+        }
+    }, [])
+
     const addProduct = (prod, quantity) => {
         const existingProduct = cart.find(product => product.id === prod.id)
-
+        let updatedCart
         if (existingProduct) {
-            const updateCart = cart.map((product) => 
+            updatedCart = cart.map((product) => 
                 product.id === prod.id 
                 ? {...product, quantity: product.quantity + quantity}
                 : product
             )
 
-            setCart(updateCart);
+            setCart(updatedCart);
         } else{
-            setCart([...cart, {...prod, quantity}]);
+            updatedCart = [...cart, {...prod, quantity}];
+            setCart(updatedCart)
         }
-
-        setQuantityTotal(quantityTotal+quantity);
-        setTotal(total + prod.price*quantity);
+        const newQuantityTotal = quantityTotal+quantity
+        const newTotal = total + prod.price*quantity
+        setQuantityTotal(newQuantityTotal);
+        setTotal(newTotal);
         setOpenSnack(true);
+        localStorage.setItem("cart", JSON.stringify({cart: updatedCart, total: newTotal, quantityTotal: newQuantityTotal}));
     }
 
     const updateQuantity = (id, newQuantity) => {
@@ -46,20 +58,25 @@ export const CartProvider = ({children}) => {
 
         setTotal(newTotal);
         setQuantityTotal(newQuantityTotal);
+        localStorage.setItem("cart", JSON.stringify({cart: updatedCart, total: newTotal, quantityTotal: newQuantityTotal}));
     }
 
     const deleteProduct = (idProduct) => {
         const prodToDelete = cart.find(product => product.id === idProduct);
         const newCart = cart.filter(product => product.id !== idProduct);
+        const newTotal = total-(prodToDelete.price*prodToDelete.quantity)
+        const newQuantityTotal = quantityTotal-prodToDelete.quantity
         setCart(newCart);
-        setTotal(total-(prodToDelete.price*prodToDelete.quantity));
-        setQuantityTotal(quantityTotal-prodToDelete.quantity);
+        setTotal(newTotal);
+        setQuantityTotal(newQuantityTotal);
+        localStorage.setItem("cart", JSON.stringify(newCart));
     }
 
     const emptyCart = () => {
         setCart([]);
         setTotal(0);
         setQuantityTotal(0);
+        localStorage.setItem("cart", JSON.stringify({cart: [], total: 0, quantityTotal: 0}));
     }
 
     const formatPrice = (price) => {

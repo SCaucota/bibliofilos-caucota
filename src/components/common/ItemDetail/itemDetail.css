@@ -48,3 +48,13 @@ h2{
     height: 400px;
     margin: 1rem;
 }
+
+@media (max-width: 928px){
+    .cardContainer{
+        flex-direction: column;
+    }
+
+    .dataContainer{
+        width: 100%;
+    }
+}

@@ -1,3 +1,7 @@
+.navbarContainer{
+    justify-content: space-between;
+}
+
 .navbar {
     background-color: #000020;
     padding: 1rem 2rem;
@@ -16,4 +20,34 @@
 
 .link{
     text-decoration: none;
+}
+
+.drawerMoodCart{
+    margin-top: 1.5rem;
+    margin-right: 1rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+@media (max-width: 1313px) {
+    .navbarOptions{
+        display: none !important;
+    }
+
+    .serachCartIconContainer{
+        display: none !important;
+    }
+
+    .brandLink{
+        display: none;
+    }
+
+    .burguerIcon{
+        display: flex !important;
+    }
+
+    .navbar{
+        justify-content: space-between;
+        padding-right: 3rem;
+    }
 }

@@ -25,3 +25,9 @@
     color: #881C3C;
     border-color: #881C3C;
 }
+
+@media (max-width: 670px){
+    .errorContainer div{
+        padding: 3rem 5rem;
+    }
+}

@@ -45,8 +45,6 @@ const Checkout = () => {
   }, [orderId]);
 
   const cancelPurchase = () => {
-    emptyCart();
-    setQuantityTotal(0);
     navigate("/");
   };
 

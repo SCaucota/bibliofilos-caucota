@@ -12,3 +12,9 @@
     margin-left: 2rem;
     width: 15%;
 }
+
+@media (max-width: 789px) {
+    .filterSelect{
+        width: 50%;
+    }
+}

@@ -32,8 +32,10 @@ const Cart = () => {
             </div>
             <div className='totalButtonsContainer'>
               <h2>Total: ${formatPrice(total)}</h2>
-              <Button btnText={'Vaciar Carrito'} action={() => {emptyCart()}} />
-              <Button btnText={'Comprar'} route={'/checkout'} />
+              <div>
+                <Button btnText={'Vaciar Carrito'} action={() => {emptyCart()}} />
+                <Button btnText={'Comprar'} route={'/checkout'} />
+              </div>
             </div>
           </div>
         </>
